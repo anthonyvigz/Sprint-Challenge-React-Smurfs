@@ -17,6 +17,9 @@ class App extends Component {
       .then( (response) => {
         this.setState( { smurfs: response.data })
       })
+      .catch((err) => {
+        console.log("Error:", err)
+      })
   }
 
 
