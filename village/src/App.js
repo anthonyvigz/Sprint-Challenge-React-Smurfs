@@ -22,6 +22,9 @@ class App extends Component {
       })
   }
 
+  updateSmurfs = (newsmurfs) => {
+    this.setState( { smurfs: newsmurfs })
+  }
 
   // add any needed code to ensure that the 
   // smurfs collection exists on state and it has data coming from the server
@@ -31,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm updateSmurfs={this.updateSmurfs} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
