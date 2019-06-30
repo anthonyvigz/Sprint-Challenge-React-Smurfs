@@ -11,14 +11,31 @@ class EditSmurf extends Component {
     };
   }
 
-  addSmurf = event => {
+  componentDidMount() {
+    const id = this.props.match.params.id
+    axios.get(`http://localhost:3333/smurfs/${id}`)
+        .then( response => {
+            this.setState({
+                name: response.data.name,
+                age: response.data.age,
+                height: response.data.height
+            })
+        })
+
+        .catch( err => {
+            console.log("Error:", err);
+            })
+        }
+  
+  
+  
+  
+  deleteSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
 
-    const { name, age, height } = this.state;
-    const payload = { name, age, height }
+    const id = this.props.match.params.id
 
-    axios.post("http://localhost:3333/smurfs", payload)
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
       .then((response) => {
 
         this.props.updateSmurfs(response.data);
@@ -36,6 +53,33 @@ class EditSmurf extends Component {
     });
   }
 
+  changeSmurf = event => {
+    event.preventDefault();
+
+    const id = this.props.match.params.id;
+    const { name, age, height } = this.state;
+    const payload = { name, age, height }
+
+    axios.post(`http://localhost:3333/smurfs/${id}`, payload)
+      .then((response) => {
+
+        this.props.updateSmurfs(response.data);
+
+        console.log(response.data)
+      })
+      .catch((err) => {
+        console.log("Error:", err)
+      })
+
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    });
+
+    
+  }
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -43,7 +87,7 @@ class EditSmurf extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.changeSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -62,7 +106,8 @@ class EditSmurf extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Update Smurf</button>
+          <button onClick={this.deleteSmurf}>Delete</button>
         </form>
       </div>
     );
