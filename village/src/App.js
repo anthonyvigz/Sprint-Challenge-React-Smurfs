@@ -48,6 +48,10 @@ class App extends Component {
             (props) =>
               <Smurfs {...props} smurfs={this.state.smurfs} />
           } />
+        <nav>
+          <NavLink to="/">Smurfs</NavLink>
+          <NavLink to="/smurf-form">Add A Smurf</NavLink>
+        </nav>
       </div>
     );
   }
