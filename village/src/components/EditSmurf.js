@@ -10,25 +10,22 @@ class EditSmurf extends Component {
       height: ''
     };
   }
-
+  
   componentDidMount() {
-    const id = this.props.match.params.id
-    axios.get(`http://localhost:3333/smurfs/${id}`)
-        .then( response => {
-            this.setState({
-                name: response.data.name,
-                age: response.data.age,
-                height: response.data.height
-            })
-        })
-
-        .catch( err => {
-            console.log("Error:", err);
-            })
-        }
-  
-  
-  
+    axios.get('http://localhost:3333/smurfs')
+      .then( (response) => {
+        const smurf = response.data.find(i => String(i.id) === this.props.match.params.id);
+        
+        this.setState({
+          name: smurf.name,
+          age: smurf.age,
+          height: smurf.height
+        });
+      })
+      .catch((err) => {
+        console.log("Error:", err)
+      })
+  }
   
   deleteSmurf = event => {
     event.preventDefault();
@@ -60,7 +57,7 @@ class EditSmurf extends Component {
     const { name, age, height } = this.state;
     const payload = { name, age, height }
 
-    axios.post(`http://localhost:3333/smurfs/${id}`, payload)
+    axios.put(`http://localhost:3333/smurfs/${id}`, payload)
       .then((response) => {
 
         this.props.updateSmurfs(response.data);

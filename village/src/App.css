@@ -14,3 +14,34 @@ nav > .active {
   color: white;
   text-decoration: none;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+input {
+  padding: 10px 30px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  border: solid dodgerblue 3px;
+  
+}
+
+button {
+  margin-bottom: 50px;
+  background-color: dodgerblue;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  transition: 1s;
+}
+
+button:hover {
+  background-color: lightblue;
+  transition: 1s;
+}

@@ -23,6 +23,8 @@ class SmurfForm extends Component {
 
         this.props.updateSmurfs(response.data);
 
+        this.props.history.push("/")
+
         console.log(response.data)
       })
       .catch((err) => {
