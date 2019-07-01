@@ -12,7 +12,7 @@ nav {
 
 
 nav > .active {
-  background: black;
+  background: #89a6f5;
   border: lightblue solid 2px;
   color: white;
   text-decoration: none;
@@ -22,11 +22,12 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 input {
-  padding: 10px 30px;
+  padding: 30px 60px;
+  font-size: 2em;
   margin-bottom: 30px;
   border-radius: 5px;
   border: solid dodgerblue 3px;
@@ -34,7 +35,7 @@ input {
 }
 
 button {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   background-color: dodgerblue;
   border-radius: 25px;
   padding: 10px 25px;
@@ -81,4 +82,20 @@ a {
 
 h3 {
   font-size: 1.5em;
+  padding: 5px;
+  transition: 1s;
+}
+
+h3:hover {
+  font-size: 1.6em;
+  color: purple;
+  transition: 1s;
+}
+
+nav a {
+  padding: 10px 30px;
+  border-radius: 10px;
+  background-color: lightblue;
+  border: solid 1px dodgerblue;
+  color: white;
 }

@@ -84,6 +84,7 @@ class EditSmurf extends Component {
   render() {
     return (
       <div className="SmurfForm">
+        <h1>Edit Smurf!</h1>
         <form onSubmit={this.changeSmurf}>
           <input
             onChange={this.handleInputChange}
