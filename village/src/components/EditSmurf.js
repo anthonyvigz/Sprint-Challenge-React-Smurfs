@@ -37,7 +37,7 @@ class EditSmurf extends Component {
 
         this.props.updateSmurfs(response.data);
 
-        console.log(response.data)
+        this.props.history.push("/")
       })
       .catch((err) => {
         console.log("Error:", err)
@@ -62,7 +62,7 @@ class EditSmurf extends Component {
 
         this.props.updateSmurfs(response.data);
 
-        console.log(response.data)
+        this.props.history.push("/")
       })
       .catch((err) => {
         console.log("Error:", err)

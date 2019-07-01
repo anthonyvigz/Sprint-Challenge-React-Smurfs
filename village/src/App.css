@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'DM Serif Display', serif;
 }
 
 nav {
@@ -44,4 +47,38 @@ button {
 button:hover {
   background-color: lightblue;
   transition: 1s;
+}
+
+.Smurfs {
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  color: dodgerblue;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 45px;
+}
+
+.Smurf {
+  background-color: #f7ffff;
+  border: solid dodgerblue 2px;
+  width: 200px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: darkblue;
+}
+
+h3 {
+  font-size: 1.5em;
 }
